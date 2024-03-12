@@ -1,0 +1,59 @@
+<% layout('layouts/default') -%>
+<div class="col-sm-12 mb-2">
+    <div class="page-title-box">
+        <h3 class="page-title">My Profile</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="widget pad50-60 mb-30">
+            <div class="">
+                <form id="profileForm" method="post">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group mb-3">
+                                <label>First Name<span class="text-danger">*</span></label>
+                                <input type="text" name="firstName" class="form-control"
+                                       placeholder="Full Name"
+                                       autocomplete="off" value="<%= admin.firstName %>">
+                                <div class="text-danger firstName"></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group mb-3">
+                                <label>Last Name<span class="text-danger">*</span></label>
+                                <input type="text" name="lastName" class="form-control" placeholder="Last Name"
+                                       autocomplete="off" value="<%= admin.lastName || '' %>">
+                                <div class="text-danger lastName"></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group mb-3">
+                                <label>Email <span class="text-danger">*</span></label>
+                                <input type="email" name="email" class="form-control" readonly placeholder="Email"
+                                       autocomplete="off" value="<%= admin.email %>">
+                                <div class="text-danger email"></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group mb-3">
+                                <label>Contact Number <span class="text-danger">*</span></label>
+                                <input type="text" name="contactNumber" class="form-control"
+                                       placeholder="Contact Number" autocomplete="off"
+                                       value="<%= admin.contactNumber || '' %>">
+                                <div class="text-danger contactNumber"></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 text-right">
+                            <div class="form-group mb-3 text-right">
+                                <button id="submitProfileForm" type="submit"
+                                        class="btn btn-primary waves-effect waves-light">Submit
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<% layout('./../layouts/default') -%>
+<div class="row">
+    <div class="col-12">
+        <div class="widget pad30-65">
+            <h4 class="font-30 mb-30">View Vehicle </h4>
+            <div class="row">
+                <div class="col-lg-12 " style="padding-bottom: 15px;">
+                    <img style="width: 90px; height: 90px; border-radius: 50%; border: 1px solid #d3d3d3"
+                        src="<%=url%><%=vehicle.image%>"
+                        alt="image">
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="form-group mb-3">
+                        <label>Name: </label> <%= vehicle.vehicleName %>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="form-group mb-3">
+                        <label>Model: </label> <%= vehicle.vehicleModel %>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="form-group mb-3">
+                        <label>Vehicle Number: </label> <%= vehicle.vehicleNumber %>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="form-group mb-3">
+                        <label>Vehicle Number: </label> <%= vehicle.vehicleNumber %>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>  

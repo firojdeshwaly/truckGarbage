@@ -1,0 +1,16 @@
+const express = require('express');
+const router = express.Router();
+const VehicleInfoController = require('./VehicleTypeController');
+const { verifyToken } = require('../../../util/auth');
+const validations = require('./VehicleTypeValidations');
+const {validate} = require('../../../util/validations');
+router.get('/', verifyToken, VehicleInfoController.listPage);
+router.get('/list', verifyToken, VehicleInfoController.list);
+router.get('/add', verifyToken, VehicleInfoController.add);
+router.post('/add/save_add', verifyToken, VehicleInfoController.saveAdd);
+router.get("/view/:id", validate(validations.requireId, "params", {}, "/vehicleinfo"), verifyToken,VehicleInfoController.view);
+router.get('/edit/:id',verifyToken,VehicleInfoController.edit);
+router.post("/update/:id",validate(validations.requireId, "params", {}, "/vehicleinfo"),verifyToken,VehicleInfoController.updateData);
+router.get("/update-status",validate(validations.updateStatus, "query", {}, "/vehicleinfo"),verifyToken,VehicleInfoController.updateStatus);
+router.get("/delete/:id",validate(validations.requireId, "params", {}, "/vehicleinfo"),verifyToken,VehicleInfoController.delete);
+module.exports = router;

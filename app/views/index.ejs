@@ -1,0 +1,111 @@
+<% layout('layouts/default') -%>
+<div class="row">
+    <div class="col-xl-3 col-md-8">
+       <div class="mb-30">
+          <div class="widget pad50-60">
+             <div class="d-flex align-items-center justify-content-between">
+                <div class="increase">
+                   <div class="card-title d-flex align-items-end mb-2">
+                      <a href="/users"><h2><%=user_count %></h2></a>
+                   </div>
+                   <h3 class="card-subtitle mb-2">Total Users</h3>
+                </div>
+                <div class="congratulation-img">
+                   <img src="<%= siteUrl %>/img/media/images.jfif" alt="">
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+    <div class="col-xl-3 col-md-8">
+        <div class="mb-30">
+           <div class="widget pad50-60">
+              <div class="d-flex align-items-center justify-content-between">
+                 <div class="increase">
+                    <div class="card-title d-flex align-items-end mb-2">
+                       <a href="/driver"><h2><%=driver_count %></h2></a>
+                    </div>
+                    <h3 class="card-subtitle mb-2">Total Driver</h3>
+                 </div>
+                 <div class="congratulation-img">
+                    <img src="<%= siteUrl %>/img/media/images.jfif" alt="">
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+</div>
+<div class="row">
+    <div class="col-12 mt-3 mb-5">
+        <div class="widget pad50-60 mb-30">
+            <div class="pt-10">
+                <h4 class="font-20 ">Recent User</h4>
+            </div>
+            <div class="table-responsive">
+                <table class="text-nowrap text-white d-table">
+                    <thead>
+                        <tr>
+                            <th>S.No.</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                     <%  users.forEach(function(user, index) { %>
+                         <tr>
+                             <td><%= index + 1 %></td>
+                             <td><%=user.name %></td>
+                             <td><%=user.email %></td>
+                             <td><% if(user.isSuspended){%>
+                                 <span class="badge label-table badge-danger">In-Active</span>
+                                 <% }else{ %>
+                                     <span class="badge label-table badge-success">Active</span>
+                                     <% } %>
+                                 </td>
+                             <td><a href="/users/view/<%=user._id%>" title="view">Profile</a></td>
+                         </tr>
+                     <% });  %> 
+                 </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 mt-1 mb-4">
+        <div class="widget pad50-60 mb-30">
+            <div class="pt-10">
+                <h4 class="font-20 ">Recent Driver</h4>
+            </div>
+            <div class="table-responsive">
+                <table class="text-nowrap text-white d-table">
+                    <thead>
+                        <tr>
+                            <th>S.No.</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                     <%  driver.forEach(function(driver, index) { %>
+                         <tr>
+                             <td><%= index + 1 %></td>
+                             <td><%=driver.name %></td>
+                             <td><%=driver.email %></td>
+                             <td><% if(driver.isSuspended){%>
+                                 <span class="badge label-table badge-danger">In-Active</span>
+                                 <% }else{ %>
+                                     <span class="badge label-table badge-success">Active</span>
+                                     <% } %>
+                                 </td>
+                             <td><a href="/driver/view/<%=driver._id%>" title="view">Profile</a></td>
+                         </tr>
+                     <% });  %> 
+                 </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

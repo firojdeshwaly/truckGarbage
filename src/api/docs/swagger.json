@@ -1,0 +1,2380 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Garbage Collector APIs",
+    "description": "Garbage Collector APIs"
+  },
+  "basePath": "/",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/auth/log-in": {
+      "post": {
+        "tags": [
+          "User Auth"
+        ],
+        "summary": "Log in system",
+        "description": "Log in system",
+        "operationId": "log-in",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/login"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Login",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+    "/auth/log-out": {
+      "get": {
+        "tags": [
+          "User Auth"
+        ],
+        "summary": "log out",
+        "description": "log out",
+        "operationId": "log out",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "$ref": "#/parameters/HeaderAuth"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "log out success",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+    "/auth/signup": {
+      "post": {
+        "tags": [
+          "User Auth"
+        ],
+        "summary": "Signup",
+        "description": "Sign Up",
+        "operationId": "signup",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/user_signup"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Signup",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+    "/auth/verify-otp": {
+      "post": {
+        "tags": [
+          "User Auth"
+        ],
+        "summary": "Verify Otp",
+        "description": "Verify otp",
+        "operationId": "verify-otp",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/verify_otp"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User profile in system",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+    "/auth/welcome-list": {
+      "get": {
+        "tags": [
+          "User Auth"
+        ],
+        "summary": "welcome-list",
+        "description": "welcome-list",
+        "operationId": "welcome-list",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "welcome list",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+    "/auth/address-list": {
+      "get": {
+        "tags": [
+          "User Auth"
+        ],
+        "summary": "address-list",
+        "description": "address-list",
+        "operationId": "address-list",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "address list",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+    "/auth/country": {
+      "get": {
+        "tags": [
+          "User Auth"
+        ],
+        "summary": "country-list",
+        "description": "country-list",
+        "operationId": "country",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "country list",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+    "/auth/resend-otp": {
+      "post": {
+        "tags": [
+          "User Auth"
+        ],
+        "summary": "Resend Otp",
+        "description": "Resend otp",
+        "operationId": "resend-otp",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/resend_otp"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resend otp in system",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+    "/auth/forgot-password": {
+      "post": {
+        "tags": [
+          "User Auth"
+        ],
+        "summary": "Forgot Password",
+        "description": "Forgot Password",
+        "operationId": "forgot-password",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/forgot_password"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Forgot password in system",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+    "/auth/reset-password": {
+      "post": {
+        "tags": [
+          "User Auth"
+        ],
+        "summary": "Reset Password",
+        "description": "Reset password",
+        "operationId": "reset-password",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/reset_password"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User profile in system",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+    "/auth/driversignup": {
+      "post": {
+        "tags": [
+          "Driver Auth"
+        ],
+        "summary": "Driver Sign up",
+        "description": "Driver Sign Up",
+        "operationId": "driversignup",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/driver_signup"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Signup",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+    "/auth/driver-verify-otp": {
+      "post": {
+        "tags": [
+          "Driver Auth"
+        ],
+        "summary": "Driver Verify Otp",
+        "description": "Driver Verify otp",
+        "operationId": "driver-verify-otp",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/driver_verify_otp"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User profile in system",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+    "/auth/vehicle-list": {
+      "get": {
+        "tags": [
+          "Driver Auth"
+        ],
+        "summary": "vehicle-list",
+        "description": "vehicle-list",
+        "operationId": "vehicle-list",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "welcome list",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+    "/auth/preferences-list": {
+      "get": {
+        "tags": [
+          "Driver Auth"
+        ],
+        "summary": "preferences-list",
+        "description": "preferences-list",
+        "operationId": "preferences-list",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "preferences list",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+    "/auth/driver-resend-otp": {
+      "post": {
+        "tags": [
+          "Driver Auth"
+        ],
+        "summary": "Driver Resend Otp",
+        "description": "Driver Resend otp",
+        "operationId": "driver-resend-otp",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/driver_resend_otp"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resend otp in system",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+    "/auth/driver-forgot-password": {
+      "post": {
+        "tags": [
+          "Driver Auth"
+        ],
+        "summary": "Driver Forgot Password",
+        "description": "Driver Forgot Password",
+        "operationId": "driver-forgot-password",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/driver_forgot_password"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Forgot password in system",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+    "/auth/driver-reset-password": {
+      "post": {
+        "tags": [
+          "Driver Auth"
+        ],
+        "summary": "Driver Reset Password",
+        "description": "Driver Reset password",
+        "operationId": "driver-reset-password",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/driver_reset_password"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User profile in system",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+    "/users/add-driver-vehicle": {
+      "post": {
+        "tags": [
+          "Driver"
+        ],
+        "summary": "Driver vehicle info",
+        "description": "Add Driver vehicle info",
+        "operationId": "add-driver-vehicle",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "$ref": "#/parameters/HeaderAuth"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/driverVehicle"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Login",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+    "/users/vehicle-type-list": {
+      "get": {
+        "tags": [
+          "Driver"
+        ],
+        "summary": "vehicle type list",
+        "description": "vehicle type list",
+        "operationId": "vehicle-type-list",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "$ref": "#/parameters/HeaderAuth"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "vehicle-type-list",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+    "/auth/driver-log-out": {
+      "get": {
+        "tags": [
+          "Driver Auth"
+        ],
+        "summary": "Driver log out",
+        "description": "Driver log out",
+        "operationId": "driver-log-out",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "$ref": "#/parameters/HeaderAuth"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "log out success",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+    "/users/getProfile": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "get Profile of user",
+        "description": "get Profile of user",
+        "operationId": "getProfile",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "$ref": "#/parameters/HeaderAuth"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Profile fetched successfully",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+    "/users/createProfile": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "create Profile",
+        "description": "create Profile",
+        "operationId": "createProfile",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "$ref": "#/parameters/HeaderAuth"
+          },
+          {
+            "in": "formData",
+            "name": "image",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Profile created successFully",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+    "/users/updateProfile": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "update Profile",
+        "description": "update Profile",
+        "operationId": "updateProfile",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "$ref": "#/parameters/HeaderAuth"
+          },
+          {
+            "in": "formData",
+            "name": "fullName",
+            "type": "string",
+            "value": "John Dae"
+          },
+          {
+            "in": "formData",
+            "name": "email",
+            "type": "string",
+            "value": "john@yopmail.com"
+          },
+          {
+            "in": "formData",
+            "name": "dob",
+            "type": "string",
+            "value": "11/11/2011"
+          },
+          {
+            "in": "formData",
+            "name": "image",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Profile update successFully",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+    "/users/driverCreateProfile": {
+      "post": {
+        "tags": [
+          "Driver"
+        ],
+        "summary": "Driver Create Profile",
+        "description": "Driver Create Profile",
+        "operationId": "driverCreateProfile",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "$ref": "#/parameters/HeaderAuth"
+          },
+          {
+            "in": "formData",
+            "name": "name",
+            "type": "string",
+            "value": "John Dae"
+          },
+          {
+            "in": "formData",
+            "name": "email",
+            "type": "string",
+            "value": "john@yopmail.com"
+          },
+          {
+            "in": "formData",
+            "name": "dob",
+            "type": "string",
+            "value": "11/11/2011"
+          },
+          {
+            "in": "formData",
+            "name": "image",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Profile created successFully",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+    "/users/driverUpdateProfile": {
+      "post": {
+        "tags": [
+          "Driver"
+        ],
+        "summary": "Driver update Profile",
+        "description": "Driver update Profile",
+        "operationId": "driverUpdateProfile",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "$ref": "#/parameters/HeaderAuth"
+          },
+          {
+            "in": "formData",
+            "name": "Name",
+            "type": "string",
+            "value": "John Dae"
+          },
+          {
+            "in": "formData",
+            "name": "email",
+            "type": "string",
+            "value": "john@yopmail.com"
+          },
+          {
+            "in": "formData",
+            "name": "dob",
+            "type": "string",
+            "value": "11/11/2011"
+          },
+          {
+            "in": "formData",
+            "name": "image",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Profile update successFully",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+    "/users/driverDocument": {
+      "post": {
+        "tags": [
+          "Driver"
+        ],
+        "summary": "Driver Document",
+        "description": "Driver Document",
+        "operationId": "driverDocument",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "$ref": "#/parameters/HeaderAuth"
+          },
+          {
+            "in": "formData",
+            "name": "dlImage",
+            "type": "file"
+          },
+          {
+            "in": "formData",
+            "name": "rcImage",
+            "type": "file"
+          },
+          {
+            "in": "formData",
+            "name": "panImage",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Driver document created successFully",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+    "/users/driverUpdateDocument": {
+      "post": {
+        "tags": [
+          "Driver"
+        ],
+        "summary": "Driver update Document",
+        "description": "Driver update Document",
+        "operationId": "driverUpdateDocument",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "$ref": "#/parameters/HeaderAuth"
+          },
+          {
+            "in": "formData",
+            "name": "dlImage",
+            "type": "file"
+          },
+          {
+            "in": "formData",
+            "name": "rcImage",
+            "type": "file"
+          },
+          {
+            "in": "formData",
+            "name": "panImage",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Profile update successFully",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+    "/requests/nearest-yards": {
+      "get": {
+        "tags": [
+          "Request"
+        ],
+        "summary": "Nearest Yards List",
+        "description": "Nearest Yards List",
+        "operationId": "nearest-yards",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "$ref": "#/parameters/HeaderAuth"
+          },
+          {
+            "in": "query",
+            "name": "lng",
+            "type": "number"
+          },
+          {
+            "in": "query",
+            "name": "lat",
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Driver Info add successfully",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    },
+    "/requests/request-list": {
+      "get": {
+        "tags": [
+          "Request"
+        ],
+        "summary": "Request List",
+        "description": "Request List",
+        "operationId": "request-list",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/HeaderVersion"
+          },
+          {
+            "$ref": "#/parameters/HeaderLanguage"
+          },
+          {
+            "$ref": "#/parameters/HeaderPlatform"
+          },
+          {
+            "$ref": "#/parameters/HeaderAuth"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User's request list",
+            "schema": {
+              "$ref": "#/definitions/responsesOk"
+            }
+          },
+          "500": {
+            "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/responsesError"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "driverVehicle": {
+      "type": "object",
+      "required": [
+        "vehicleTypeId",
+        "vehicleName",
+        "vehicleModel",
+        "vehicleNumber"
+      ],
+      "properties": {
+        "vehicleTypeId": {
+          "type": "string",
+          "example": "63da04ba8a7c4d1b78d389b2"
+        },
+        "vehicleName": {
+          "type": "string",
+          "example": "passon"
+        },
+        "vehicleModel": {
+          "type": "string",
+          "example": "xpro"
+        },
+        "vehicleNumber": {
+          "type": "string",
+          "example": "RJ14-jp-1284"
+        }
+      }
+    },
+    "driver_signup": {
+      "type": "object",
+      "required": [
+        "name",
+        "password",
+        "confirmPassword",
+        "deviceToken",
+        "deviceType",
+        "lat",
+        "driverReferalCode",
+        "long"
+      ],
+      "properties": {
+        "password": {
+          "type": "string",
+          "format": "password",
+          "example": "John@1234"
+        },
+        "confirmPassword": {
+          "type": "string",
+          "format": "password",
+          "example": "John@1234"
+        },
+        "name": {
+          "type": "String",
+          "example": "John"
+        },
+        "deviceToken": {
+          "type": "String",
+          "example": "fkdkfdkd-2929292929"
+        },
+        "deviceType": {
+          "type": "String",
+          "example": "fkdkfdkd-2929292929"
+        },
+        "lat": {
+          "type": "String",
+          "example": "45.12"
+        },
+        "long": {
+          "type": "String",
+          "example": "35.14"
+        },
+        "driverReferalCode": {
+          "type": "String",
+          "example": "9876543210"
+        }
+      }
+    },
+    "driver_verify_otp": {
+      "type": "object",
+      "required": [
+        "token",
+        "otp",
+        "phoneNumber"
+      ],
+      "properties": {
+        "token": {
+          "type": "string",
+          "description": "Auth token",
+          "example": "5ced3056adc9846820a9d520"
+        },
+        "otp": {
+          "type": "string",
+          "description": "Recieved on submitted mobile number",
+          "example": "1234"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "phoneNumber",
+          "example": "9876543210"
+        }
+      }
+    },
+    "driver_resend_otp": {
+      "type": "object",
+      "required": [
+        "token",
+        "phoneNumber"
+      ],
+      "properties": {
+        "token": {
+          "type": "string",
+          "description": "Auth token",
+          "example": "5ced3056adc9846820a9d520"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "Phone Number",
+          "example": "9876543210"
+        }
+      }
+    },
+    "driver_forgot_password": {
+      "type": "object",
+      "required": [
+        "phoneNumber"
+      ],
+      "properties": {
+        "phoneNumber": {
+          "type": "string",
+          "example": "9876543210"
+        }
+      }
+    },
+    "driver_reset_password": {
+      "type": "object",
+      "required": [
+        "phoneNumber",
+        "password",
+        "cnfpassword",
+        "token"
+      ],
+      "properties": {
+        "phoneNumber": {
+          "type": "string",
+          "description": "phoneNumber",
+          "example": "9876543210"
+        },
+        "password": {
+          "type": "string",
+          "format": "password",
+          "example": "admin@1234"
+        },
+        "cnfpassword": {
+          "type": "string",
+          "format": "password",
+          "example": "admin@1234"
+        },
+        "token": {
+          "type": "string",
+          "example": "dacsdvzdawre"
+        }
+      }
+    },
+    "driverlogin": {
+      "type": "object",
+      "required": [
+        "phoneNumber",
+        "password",
+        "deviceType",
+        "deviceToken",
+        "lat",
+        "long"
+      ],
+      "properties": {
+        "phoneNumber": {
+          "type": "string",
+          "example": "9876543210"
+        },
+        "password": {
+          "type": "string",
+          "example": "John@1234"
+        },
+        "deviceId": {
+          "type": "string",
+          "example": "asdfe12dfdf34dgd5"
+        },
+        "deviceToken": {
+          "type": "string",
+          "example": "dvctasdfe12dfdf34dgd5"
+        },
+        "deviceType": {
+          "type": "string",
+          "example": "android/ios"
+        },
+        "lat": {
+          "type": "Number",
+          "example": 29.1222
+        },
+        "long": {
+          "type": "Number",
+          "example": 75.1222
+        }
+      }
+    },
+    "create_session": {
+      "type": "object",
+      "required": [
+        "scheduleDate",
+        "starting_time",
+        "ending_time",
+        "timeZone"
+      ],
+      "properties": {
+        "scheduleDate": {
+          "type": "string",
+          "description": "scheduleDate",
+          "example": "2022-01-22"
+        },
+        "name": {
+          "type": "string",
+          "description": "Session name",
+          "example": "Swimming"
+        },
+        "starting_time": {
+          "type": "string",
+          "description": "starting_time",
+          "example": "16:00"
+        },
+        "ending_time": {
+          "type": "string",
+          "description": "ending_time",
+          "example": "17:00"
+        },
+        "timeZone": {
+          "type": "string",
+          "description": "timeZone",
+          "example": "Asia/Kolkata"
+        }
+      }
+    },
+    "edit_session": {
+      "type": "object",
+      "required": [
+        "scheduleDate",
+        "starting_time",
+        "ending_time",
+        "timeZone"
+      ],
+      "properties": {
+        "scheduleDate": {
+          "type": "string",
+          "description": "scheduleDate",
+          "example": "2022-01-22"
+        },
+        "name": {
+          "type": "string",
+          "description": "Session name",
+          "example": "Swimming"
+        },
+        "starting_time": {
+          "type": "string",
+          "description": "starting_time",
+          "example": "16:00"
+        },
+        "ending_time": {
+          "type": "string",
+          "description": "ending_time",
+          "example": "17:00"
+        },
+        "timeZone": {
+          "type": "string",
+          "description": "timeZone",
+          "example": "Asia/Kolkata"
+        },
+        "sessionId": {
+          "description": "Session ID",
+          "example": "5eeb27df089b1e1294fbb363"
+        }
+      }
+    },
+    "follow_save": {
+      "type": "object",
+      "required": [
+        "Id"
+      ],
+      "properties": {
+        "Id": {
+          "description": "following Id",
+          "example": "5eeb27df089b1e1294fbb363"
+        }
+      }
+    },
+    "book_session": {
+      "type": "object",
+      "required": [
+        "sessionId",
+        "trainerId",
+        "amount"
+      ],
+      "properties": {
+        "sessionId": {
+          "description": "sessionId",
+          "example": "62ccd7a9a5c8ad2b7c6256c7"
+        },
+        "trainerId": {
+          "description": "trainerId",
+          "example": "62b6d35d076d892cd016ec81"
+        },
+        "amount": {
+          "type": "number",
+          "description": "amount",
+          "example": 100
+        },
+        "tip": {
+          "type": "number",
+          "description": "tip",
+          "example": 15
+        },
+        "timeZone": {
+          "type": "string",
+          "description": "timeZone",
+          "example": "Asia/Kolkata"
+        },
+        "stripeToken": {
+          "type": "string",
+          "description": "stripeToken",
+          "example": "tok_1LR7qvA8lBaPRpoKXKLKU24r"
+        },
+        "cardId": {
+          "description": "cardId",
+          "example": "62b6d35d076d892cd016ec81"
+        }
+      }
+    },
+    "cancel_session": {
+      "type": "object",
+      "required": [
+        "bookingId"
+      ],
+      "properties": {
+        "bookingId": {
+          "description": "bookingId",
+          "example": "62ccd7a9a5c8ad2b7c6256c7"
+        }
+      }
+    },
+    "start_session": {
+      "type": "object",
+      "required": [
+        "bookingId"
+      ],
+      "properties": {
+        "bookingId": {
+          "description": "bookingId",
+          "example": "62ccd7a9a5c8ad2b7c6256c7"
+        }
+      }
+    },
+    "confirm_session": {
+      "type": "object",
+      "required": [
+        "bookingId"
+      ],
+      "properties": {
+        "bookingId": {
+          "description": "bookingId",
+          "example": "62ccd7a9a5c8ad2b7c6256c7"
+        }
+      }
+    },
+    "add_review": {
+      "type": "object",
+      "required": [
+        "sessionId",
+        "userId",
+        "rating"
+      ],
+      "properties": {
+        "sessionId": {
+          "description": "sessionId",
+          "example": "62ccd7a9a5c8ad2b7c6256c7"
+        },
+        "userId": {
+          "description": "userId",
+          "example": "62b6d35d076d892cd016ec81"
+        },
+        "rating": {
+          "type": "number",
+          "description": "rating",
+          "example": 5
+        },
+        "review": {
+          "type": "string",
+          "description": "review",
+          "example": "The session was great and the Trainer is also professional  and experienced"
+        }
+      }
+    },
+    "add_card": {
+      "type": "object",
+      "required": [
+        "CardNumber",
+        "Expires",
+        "CVC",
+        "Name",
+        "Country",
+        "City",
+        "Address"
+      ],
+      "properties": {
+        "CardNumber": {
+          "type": "string",
+          "description": "CardNumber",
+          "example": "4485276975276264"
+        },
+        "Expires": {
+          "type": "string",
+          "description": "Expires",
+          "example": "11/2025"
+        },
+        "CVC": {
+          "type": "string",
+          "description": "CVC",
+          "example": "666"
+        },
+        "Name": {
+          "type": "string",
+          "description": "Name",
+          "example": "John Doe"
+        },
+        "Country": {
+          "type": "string",
+          "description": "Country",
+          "example": "Brazil"
+        },
+        "City": {
+          "type": "string",
+          "description": "City",
+          "example": "São Paulo"
+        },
+        "Address": {
+          "type": "string",
+          "description": "Address",
+          "example": "São Paulo,São Paulo,Brazil"
+        }
+      }
+    },
+    "user_signup": {
+      "type": "object",
+      "required": [
+        "email",
+        "password",
+        "name",
+        "confirmPassword",
+        "deviceType",
+        "deviceToken",
+        "lat",
+        "long",
+        "role"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "John"
+        },
+        "email": {
+          "type": "string",
+          "example": "abc@example.com"
+        },
+        "password": {
+          "type": "string",
+          "format": "password",
+          "example": "John@1234"
+        },
+        "confirmPassword": {
+          "type": "string",
+          "format": "password",
+          "example": "John@1234"
+        },
+        "role": {
+          "type": "String",
+          "example": "User/Driver"
+        },
+        "deviceToken": {
+          "type": "String",
+          "example": "fkdkfdkd-2929292929"
+        },
+        "deviceType": {
+          "type": "String",
+          "example": "fkdkfdkd-2929292929"
+        },
+        "lat": {
+          "type": "String",
+          "example": "45.12"
+        },
+        "long": {
+          "type": "String",
+          "example": "35.14"
+        }
+      }
+    },
+    "user_profile": {
+      "type": "object",
+      "required": [
+        "_id",
+        "shippingAddress1",
+        "shippingAddress2",
+        "city",
+        "zipCode",
+        "state",
+        "secondaryPhone",
+        "licenseNumber"
+      ],
+      "properties": {
+        "_id": {
+          "type": "string",
+          "example": "5ed660d63bbd282d947af1c6"
+        },
+        "shippingAddress1": {
+          "type": "string",
+          "example": "Avenue street"
+        },
+        "shippingAddress2": {
+          "type": "string",
+          "example": "3 mall"
+        },
+        "state": {
+          "type": "string",
+          "example": "5e15b6f7dbc1a60870ed864e"
+        },
+        "city": {
+          "type": "string",
+          "example": "Florida"
+        },
+        "zipCode": {
+          "type": "string",
+          "example": "123456"
+        },
+        "secondaryPhone": {
+          "type": "string",
+          "example": "(123) 345 7890"
+        },
+        "licenseNumber": {
+          "type": "String",
+          "example": "123Fgj"
+        }
+      }
+    },
+    "verify_otp": {
+      "type": "object",
+      "required": [
+        "token",
+        "otp",
+        "email"
+      ],
+      "properties": {
+        "token": {
+          "type": "string",
+          "description": "Auth token",
+          "example": "5ced3056adc9846820a9d520"
+        },
+        "otp": {
+          "type": "string",
+          "description": "Recieved on submitted mobile number",
+          "example": "1234"
+        },
+        "email": {
+          "type": "string",
+          "description": "Email",
+          "example": "abc@example.com"
+        }
+      }
+    },
+    "resend_otp": {
+      "type": "object",
+      "required": [
+        "token",
+        "email"
+      ],
+      "properties": {
+        "token": {
+          "type": "string",
+          "description": "Auth token",
+          "example": "5ced3056adc9846820a9d520"
+        },
+        "email": {
+          "type": "string",
+          "description": "Email",
+          "example": "abc@example.com"
+        }
+      }
+    },
+    "reset_password": {
+      "type": "object",
+      "required": [
+        "email",
+        "password",
+        "cnfpassword",
+        "token"
+      ],
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "Email",
+          "example": "abc@example.com"
+        },
+        "password": {
+          "type": "string",
+          "format": "password",
+          "example": "admin@1234"
+        },
+        "cnfpassword": {
+          "type": "string",
+          "format": "password",
+          "example": "admin@1234"
+        },
+        "token": {
+          "type": "string",
+          "example": "dacsdvzdawre"
+        }
+      }
+    },
+    "forgot_password": {
+      "type": "object",
+      "required": [
+        "email"
+      ],
+      "properties": {
+        "email": {
+          "type": "string",
+          "example": "abc@example.com"
+        }
+      }
+    },
+    "changepassword": {
+      "type": "object",
+      "required": [
+        "current_password",
+        "new_password"
+      ],
+      "properties": {
+        "current_password": {
+          "type": "string",
+          "description": "Current Password",
+          "example": "123456asdf"
+        },
+        "new_password": {
+          "type": "string",
+          "description": "New Password",
+          "example": "123456assds"
+        }
+      }
+    },
+    "change_password": {
+      "type": "object",
+      "required": [
+        "currentPassword",
+        "newPassword",
+        "cnfNewPassword"
+      ],
+      "properties": {
+        "currentPassword": {
+          "type": "string",
+          "description": "Current Password",
+          "format": "password",
+          "example": "admin@1234"
+        },
+        "newPassword": {
+          "type": "string",
+          "description": "New Password",
+          "format": "password",
+          "example": "admin@12345"
+        },
+        "cnfNewPassword": {
+          "type": "string",
+          "description": "Confirm new Password",
+          "format": "password",
+          "example": "admin@12345"
+        }
+      }
+    },
+    "rating": {
+      "type": "string",
+      "required": [
+        "restaurantId",
+        "starrating"
+      ],
+      "properties": {
+        "restaurantId": {
+          "type": "string",
+          "description": "Restaurant Id",
+          "example": "5eeb27df089b1e1294fbb363"
+        },
+        "starrating": {
+          "type": "number",
+          "description": "Star Rating",
+          "example": 2
+        },
+        "comment": {
+          "type": "string",
+          "description": "Enter Comment Here",
+          "example": "This is test Comment"
+        }
+      }
+    },
+    "like": {
+      "type": "object",
+      "required": [
+        "postId"
+      ],
+      "properties": {
+        "postId": {
+          "example": "62ac7540524dbb2a0472b656"
+        }
+      }
+    },
+    "resendOtp": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "5ced3056adc9846820a9d520",
+          "description": "User id recieved in previous step"
+        }
+      }
+    },
+    "login": {
+      "type": "object",
+      "required": [
+        "email",
+        "password",
+        "deviceType",
+        "deviceToken",
+        "lat",
+        "long"
+      ],
+      "properties": {
+        "email": {
+          "type": "string",
+          "example": "abc@example.com"
+        },
+        "password": {
+          "type": "string",
+          "example": "John@1234"
+        },
+        "deviceId": {
+          "type": "string",
+          "example": "asdfe12dfdf34dgd5"
+        },
+        "deviceToken": {
+          "type": "string",
+          "example": "dvctasdfe12dfdf34dgd5"
+        },
+        "deviceType": {
+          "type": "string",
+          "example": "android/ios"
+        },
+        "lat": {
+          "type": "Number",
+          "example": 29.1222
+        },
+        "long": {
+          "type": "Number",
+          "example": 75.1222
+        }
+      }
+    },
+    "comment": {
+      "type": "object",
+      "required": [
+        "postId",
+        "comment"
+      ],
+      "properties": {
+        "postId": {
+          "example": "62ac7540524dbb2a0472b656"
+        },
+        "comment": {
+          "type": "string",
+          "example": "Comment on post"
+        }
+      }
+    },
+    "logout": {
+      "type": "object",
+      "required": [
+        "device_token"
+      ],
+      "properties": {
+        "device_token": {
+          "type": "string",
+          "example": "device-token"
+        }
+      }
+    },
+    "alternate_product": {
+      "type": "object",
+      "required": [
+        "practiceId",
+        "productId"
+      ],
+      "properties": {
+        "productId": {
+          "type": "array",
+          "description": "Array of products ",
+          "example": [
+            {
+              "productId": "5eeb27df089b1e1294fbb361"
+            }
+          ]
+        },
+        "practiceId": {
+          "type": "string",
+          "description": "practiceId",
+          "example": "5ed8e07cc9e61918a0572ffb"
+        }
+      }
+    },
+    "responsesOk": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "type": "object"
+        }
+      }
+    },
+    "responsesError": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "error": {
+          "type": "object"
+        }
+      }
+    },
+    "loginResponseOk": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "example": "VERIFY_OTP",
+          "description": "If account not verified then rediect user to otp screen and enter OTP send to his phone number"
+        },
+        "code": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  "parameters": {
+    "HeaderVersion": {
+      "name": "X-G-Taxi-Version",
+      "in": "header",
+      "description": "X-G-Taxi-Version",
+      "required": true,
+      "type": "string",
+      "default": "1.0.0"
+    },
+    "HeaderLanguage": {
+      "name": "Accept-Language",
+      "in": "header",
+      "description": "Accept-Language",
+      "required": true,
+      "type": "string",
+      "default": "en"
+    },
+    "HeaderPlatform": {
+      "name": "X-G-Taxi-Platform",
+      "in": "header",
+      "description": "android or ios or web",
+      "required": true,
+      "type": "string",
+      "default": "android"
+    },
+    "HeaderAuth": {
+      "name": "Authorization",
+      "in": "header",
+      "description": "Authorization",
+      "required": true,
+      "type": "string"
+    },
+    "HeaderOptionalAuth": {
+      "name": "Authorization",
+      "in": "header",
+      "description": "Authorization",
+      "type": "string"
+    },
+    "HeaderCategory": {
+      "name": "category",
+      "in": "header",
+      "description": "category",
+      "required": true,
+      "type": "string"
+    }
+  }
+}

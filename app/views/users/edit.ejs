@@ -1,0 +1,31 @@
+<% layout('./../layouts/default') -%>
+<div class="row">
+    <div class="col-12">
+        <div class="widget pad30-65 mb-5">
+            <h4 class="font-30 mb-30">Edit Users </h4>
+            <form method="post" action="/users/update/<%=user._id %>" enctype="multipart/form-data">
+                <div class="row p-3">
+                    <div class="form-group mb-3 col-lg-6">
+                        <label for="formFile" class="form-label">Upload Image</label>
+                        <input class="form-control" type="file" id="formFile" name="image">
+                    </div>
+                    <div class="form-group mb-3 col-lg-6">
+                        <label>Enter Name:</label>
+                        <input type="text" name="name" class="form-control" placeholder="Full Name" autocomplete="off" value="<%=user.name %>" required>
+                    </div>
+                    <div class="form-group mb-3 col-lg-6">
+                        <label>Enter Email:</label>
+                        <input type="email" name="email" class="form-control" placeholder="Email" autocomplete="off" value="<%=user.email %>" required>
+                    </div>
+                </div>
+                <div class="col-lg-12 text-center">
+                    <div class="form-group mb-3 text-center">
+                        <button id="submitProfileForm" type="submit"
+                            class="btn btn-primary waves-effect waves-light">Update
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

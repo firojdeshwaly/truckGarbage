@@ -1,0 +1,16 @@
+const express = require('express');
+const router = express.Router();
+const WelcomeController = require('./WelcomeController');
+const { verifyToken } = require('../../../util/auth');
+const validations = require('./WelcomeValidations');
+const {validate} = require('../../../util/validations');
+router.get('/', verifyToken, WelcomeController.listPage);
+router.get('/list', verifyToken, WelcomeController.list);
+router.get('/add', verifyToken, WelcomeController.add);
+router.post('/add/save_add', verifyToken, WelcomeController.saveAdd);
+router.get("/view/:id", validate(validations.requireId, "params", {}, "/welcome"), verifyToken,WelcomeController.view);
+router.get('/edit/:id',verifyToken,WelcomeController.edit);
+router.post("/update/:id",validate(validations.requireId, "params", {}, "/welcome"),verifyToken,WelcomeController.updateData);
+router.get("/update-status",validate(validations.updateStatus, "query", {}, "/welcome"),verifyToken,WelcomeController.updateStatus);
+router.get("/delete/:id",validate(validations.requireId, "params", {}, "/welcome"),verifyToken,WelcomeController.delete);
+module.exports = router;    

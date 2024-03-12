@@ -1,0 +1,67 @@
+   <!-- Header -->
+   <header class="header white-bg fixed-top d-flex align-content-center flex-wrap">
+    <!-- Logo -->
+    <div class="logo">
+       <a href="/" class="default-logo ml-5"><img src="<%= siteUrl %>/images/logo2.png" alt="" height="50"></a>
+       <a href="/" class="mobile-logo"><img src="<%= siteUrl %>/images/logo2.png" alt="" height="20"></a>
+    </div>
+    <!-- End Logo -->
+
+    <!-- Main Header -->
+    <div class="main-header">
+       <div class="container-fluid">
+          <div class="row justify-content-between">
+             <div class="col-3 col-lg-1 col-xl-4">
+                <!-- Header Left -->
+                <div class="main-header-left h-100 d-flex align-items-center">
+                   <!-- Main Header User -->
+                   <div class="main-header-user">
+                      <a href="#" class="d-flex align-items-center" data-toggle="dropdown">
+                         <div class="menu-icon">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                         </div>
+
+                         <div class="user-profile d-xl-flex align-items-center d-none">
+                            <!-- User Avatar -->
+                            <div class="user-avatar">
+                              <img src="<%= siteUrl %>/images/logo2.png" alt="">
+                            </div>
+                            <!-- End User Avatar -->
+
+                            <!-- User Info -->
+                            <div class="user-info">
+                               <h4 class="user-name"><%= `${currentUser.firstName || ''} ${currentUser.lastName || ''}` %></h4>
+                               <p class="user-email"><%= `${currentUser.email || ''}` %></p>
+                            </div>
+                            <!-- End User Info -->
+                         </div>
+                      </a>
+                      <div class="dropdown-menu">
+                         <div class="dropdown-header noti-title">
+                            <h6 class="text-overflow m-0">Welcome !</h6>
+                         </div>
+                         <a href="/profile">My Profile</a>
+                         <a href="/change-password">Change Password</a>
+                         <a href="/auth/log-out">Log Out</a>
+                      </div>
+                   </div>
+                   <!-- End Main Header User -->
+
+                   <!-- Main Header Menu -->
+                   <div class="main-header-menu d-block d-lg-none">
+                      <div class="header-toogle-menu">
+                         <!-- <i class="icofont-navigation-menu"></i> -->
+                         <img src="<%= siteUrl %>/img/menu.png" alt="">
+                      </div>
+                   </div>
+                   <!-- End Main Header Menu -->
+                </div>
+                <!-- End Header Left -->
+             </div>
+       </div>
+    </div>
+    <!-- End Main Header -->
+ </header>
+ <!-- End Header -->

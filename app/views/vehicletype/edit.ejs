@@ -1,0 +1,35 @@
+<% layout('./../layouts/default') -%>
+<div class="row">
+    <div class="col-12">
+        <div class="widget pad30-65 mb-5">
+            <h4 class="font-30 mb-30">Edit Vehicle Info </h4>
+            <form method="post" action="/vehicletype/update/<%=vehicleType._id %>" enctype="multipart/form-data">
+                <div class="row p-3">
+                    <div class="form-group mb-3 col-lg-7">
+                        <label for="formFile" class="form-label">Vehicle Image</label>
+                        <input class="form-control" type="file" id="formFile" name="image">
+                    </div>
+                    <div class="form-group mb-3 col-lg-7">
+                        <label>Name:</label>
+                        <input type="text" name="name" class="form-control" placeholder="Name" autocomplete="off" value="<%=vehicleType.name %>" required>
+                    </div>
+                    <div class="form-group mb-3 col-lg-7">
+                        <label>Type:</label>
+                        <input type="text" name="type" class="form-control" placeholder="Type" autocomplete="off" value="<%=vehicleType.type %>" required>
+                    </div>
+                    <div class="form-group mb-3 col-lg-7">
+                        <label>Price/Km.Min:</label>
+                        <input type="text" name="vehicle_price" class="form-control" placeholder="Price/Km" autocomplete="off" value="<%=vehicleType.charge_time_weight %>" required>
+                    </div>
+                </div>
+                <div class="col-lg-12 text-center">
+                    <div class="form-group mb-3 text-center">
+                        <button id="submitProfileForm" type="submit"
+                            class="btn btn-primary waves-effect waves-light">Update
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+const express = require('express');
+const router = express.Router();
+const YardController = require('./YardController');
+const { verifyToken } = require('../../../util/auth');
+const validations = require('./YardValidations');
+const { validate } = require('../../../util/validations');
+router.get('/', verifyToken, YardController.listPage);
+router.get('/list', verifyToken, YardController.list);
+router.get('/add', verifyToken, YardController.add);
+router.post('/add', verifyToken, YardController.saveAdd);
+router.get("/view/:id", validate(validations.requireId, "params", {}, "/preferences"), verifyToken, YardController.view);
+router.get('/edit/:id', verifyToken, YardController.edit);
+router.post("/update/:id", validate(validations.requireId, "params", {}, "/preferences"), verifyToken, YardController.updateData);
+router.get("/update-status", validate(validations.updateStatus, "query", {}, "/preferences"), verifyToken, YardController.updateStatus);
+router.get("/delete/:id", validate(validations.requireId, "params", {}, "/preferences"), verifyToken, YardController.delete);
+module.exports = router;

@@ -1,0 +1,7 @@
+node_modules
+.env
+.env.api
+.env.school
+package-lock.json
+src/admin/static/uploads/
+uploads
