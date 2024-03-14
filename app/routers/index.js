@@ -15,6 +15,7 @@ routes.forEach(route => {
 router.get('/',verifyToken,
     AuthController.dashboard
 );
+//tttttttttttttttttt
 router.get('/profile', verifyToken, AuthController.profilePage);
 router.post('/profile', verifyToken, validate(validations.profile), AuthController.profile);
 router.get('/change-password', verifyToken, AuthController.changePasswordPage);
